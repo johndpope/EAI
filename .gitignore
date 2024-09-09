@@ -7,3 +7,4 @@ checkpoint/LTD/ckpt_best.pth.tar
 checkpoint/LTD/ckpt_epoch_1.pth.tar
 checkpoint/LTD/model.safetensors
 checkpoint/LTD/random_states_0.pkl
+checkpoint/LTD/ckpt_epoch_2.pth.tar
