@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm
+import shutil
 
 from accelerate import Accelerator
 from accelerate.logging import get_logger
@@ -175,11 +176,18 @@ def save_checkpoint(opt, epoch, model, optimizer, loss, is_best, accelerator):
     }
     
     ckpt_path = f"{ckpt_dir}/ckpt_epoch_{epoch+1}.pth.tar"
-    accelerator.save_state(state, ckpt_path)
+    
+    # Save the state dictionary
+    accelerator.save(state, ckpt_path)
     
     if is_best:
         best_path = f"{ckpt_dir}/ckpt_best.pth.tar"
-        accelerator.save_state(state, best_path)
+        # Copy the best model
+        if accelerator.is_main_process:
+            shutil.copyfile(ckpt_path, best_path)
+
+    # Save the Accelerator state
+    accelerator.save_state(ckpt_dir)
 
 if __name__ == "__main__":
     main()
