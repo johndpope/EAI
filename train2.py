@@ -154,12 +154,15 @@ def idct_trans(out_pose, target_pose, is_hand_norm, device):
         return get_idct(out_pose, target_pose, device)
 
 def load_checkpoint(opt, model, optimizer, accelerator):
-    ckpt_path = f"{opt.ckpt}/ckpt_{opt.model_type}_best.pth.tar"
+    ckpt_path = f"{opt.ckpt}/{opt.model_type}/ckpt_best.pth.tar"
     logger.info(f"Loading checkpoint from {ckpt_path}")
     
-    ckpt = accelerator.load_state_dict(ckpt_path)
+    ckpt = accelerator.load(ckpt_path)
     model.load_state_dict(ckpt['state_dict'])
     optimizer.load_state_dict(ckpt['optimizer'])
+    
+    # Load the Accelerator state
+    accelerator.load_state(opt.ckpt)
     
     return ckpt['epoch'], ckpt['err_best'], ckpt['lr']
 
