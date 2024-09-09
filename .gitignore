@@ -3,3 +3,7 @@ Dataset_GRAB/grab_dataloader_normalized_noTpose2_val.bin
 *.bin
 *.npy
 *.pyc
+checkpoint/LTD/ckpt_best.pth.tar
+checkpoint/LTD/ckpt_epoch_1.pth.tar
+checkpoint/LTD/model.safetensors
+checkpoint/LTD/random_states_0.pkl
