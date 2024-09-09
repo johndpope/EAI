@@ -10,9 +10,9 @@ import torch.nn as nn
 def get_dct(out_joints):
     batch, frame, node, dim = out_joints.data.shape
     dct_m_in, _ = get_dct_matrix(frame)
+    dct_m_in = dct_m_in.to(out_joints.device)  # Just move to the correct device
     input_joints = out_joints.transpose(0, 1).reshape(frame, -1).contiguous()
-    input_dct_seq = np.matmul((dct_m_in[0:frame, :]), input_joints)
-    input_dct_seq = torch.as_tensor(input_dct_seq)
+    input_dct_seq = torch.matmul(dct_m_in[0:frame, :], input_joints)
     input_joints = input_dct_seq.reshape(frame, batch, -1).permute(1, 2, 0).contiguous()
     return input_joints
 
@@ -20,7 +20,7 @@ def get_dct(out_joints):
 def get_idct(y_out, out_joints, device):
     batch, frame, node, dim = out_joints.data.shape
     _, idct_m = get_dct_matrix(frame)
-    idct_m = torch.from_numpy(idct_m).float().to(device)
+    idct_m = idct_m.to(device)  # Just move to the correct device
     outputs_t = y_out.view(-1, frame).transpose(1, 0)
     outputs_p3d = torch.matmul(idct_m[:, 0:frame], outputs_t)
     outputs_p3d = outputs_p3d.reshape(frame, batch, -1, dim).contiguous().transpose(0, 1)
@@ -31,12 +31,12 @@ def get_idct(y_out, out_joints, device):
 # 身体的关节，相对plevis的坐标系下：3D转DCT； 针对手部，相对wrist关节的坐标系下：3D转DCT；
 def get_dct_norm(out_joints):
     batch, frame, node, dim = out_joints.data.shape
-    out_joints[:,:,25:40,:] =  out_joints[:,:,25:40,:] - out_joints[:,:,20:21,:]
+    out_joints[:,:,25:40,:] = out_joints[:,:,25:40,:] - out_joints[:,:,20:21,:]
     out_joints[:,:,40:,:] = out_joints[:,:,40:,:] - out_joints[:,:,21:22,:]
     dct_m_in, _ = get_dct_matrix(frame)
+    dct_m_in = dct_m_in.to(out_joints.device)  # Just move to the correct device
     input_joints = out_joints.transpose(0, 1).reshape(frame, -1).contiguous()
-    input_dct_seq = np.matmul((dct_m_in[0:frame, :]), input_joints)
-    input_dct_seq = torch.as_tensor(input_dct_seq)
+    input_dct_seq = torch.matmul(dct_m_in[0:frame, :], input_joints)
     input_joints = input_dct_seq.reshape(frame, batch, -1).permute(1, 2, 0).contiguous()
     return input_joints
 
@@ -44,7 +44,7 @@ def get_dct_norm(out_joints):
 def get_idct_norm(y_out, out_joints, device):
     batch, frame, node, dim = out_joints.data.shape
     _, idct_m = get_dct_matrix(frame)
-    idct_m = torch.from_numpy(idct_m).float().to(device)
+    idct_m = idct_m.to(device)  # Just move to the correct device
     outputs_t = y_out.view(-1, frame).transpose(1, 0)
     outputs_p3d = torch.matmul(idct_m[:, 0:frame], outputs_t)
     outputs_p3d = outputs_p3d.reshape(frame, batch, -1, dim).contiguous().transpose(0, 1)
@@ -53,7 +53,6 @@ def get_idct_norm(y_out, out_joints, device):
     pred_3d = outputs_p3d
     targ_3d = out_joints
     return pred_3d, targ_3d
-
 
 
 # 一维DCT变换
@@ -65,5 +64,5 @@ def get_dct_matrix(N):
             if k == 0:
                 w = np.sqrt(1 / N)
             dct_m[k, i] = w * np.cos(np.pi * (i + 1 / 2) * k / N)
-    idct_m = np.linalg.inv(dct_m)  # 矩阵求逆
-    return dct_m, idct_m
+    idct_m = np.linalg.inv(dct_m)
+    return torch.from_numpy(dct_m).float(), torch.from_numpy(idct_m).float()
