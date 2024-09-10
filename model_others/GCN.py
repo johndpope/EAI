@@ -33,12 +33,21 @@ class GraphConvolution(nn.Module):
             self.bias.data.uniform_(-stdv, stdv)
 
     def forward(self, x):
-        support = torch.matmul(x, self.weight)  
-        y = torch.matmul(self.att, support) 
+        print(f"GraphConvolution input shape: {x.shape}")
+        print(f"Weight shape: {self.weight.shape}")
+        print(f"Att shape: {self.att.shape}")
+        
+        support = torch.matmul(x, self.weight)
+        print(f"Support shape after matmul: {support.shape}")
+        
+        y = torch.matmul(self.att, support)
+        print(f"Output shape after att matmul: {y.shape}")
+        
         if self.bias is not None:
-            return y + self.bias  
+            return y + self.bias
         else:
             return y
+        
     def __repr__(self):
         return self.__class__.__name__ + ' (' \
                + str(self.in_features) + ' -> ' \
@@ -99,15 +108,30 @@ class GCN(nn.Module):
         self.act_f = nn.Tanh()
 
     def forward(self, x):
+        print(f"GCN input shape: {x.shape}")
+        print(f"GC1 weight shape: {self.gc1.weight.shape}")
+        print(f"GC1 att shape: {self.gc1.att.shape}")
+        
         y = self.gc1(x)
+        print(f"After GC1 shape: {y.shape}")
+        
         b, n, f = y.shape
         y = self.bn1(y.view(b, -1)).view(b, n, f)
+        print(f"After BN1 shape: {y.shape}")
+        
         y = self.act_f(y)
         y = self.do(y)
-        for i in range(self.num_stage):
-            y = self.gcbs[i](y)
+        print(f"After activation and dropout shape: {y.shape}")
+        
+        for i, gcb in enumerate(self.gcbs):
+            y = gcb(y)
+            print(f"After GC_Block {i+1} shape: {y.shape}")
+        
         y = self.gc7(y)
+        print(f"After GC7 shape: {y.shape}")
+        
         y = y + x
+        print(f"Final output shape: {y.shape}")
 
         return y
 
