@@ -76,38 +76,82 @@ def map_coco_to_grab(coco_keypoints):
         'left_shoulder': 5, 'right_shoulder': 6, 'left_elbow': 7, 'right_elbow': 8,
         'left_wrist': 9, 'right_wrist': 10, 'left_hip': 11, 'right_hip': 12,
         'left_knee': 13, 'right_knee': 14, 'left_ankle': 15, 'right_ankle': 16,
+        'left_big_toe': 17, 'left_small_toe': 18, 'left_heel': 19,
+        'right_big_toe': 20, 'right_small_toe': 21, 'right_heel': 22,
+        'neck': 23, 'center_of_glabella': 24,
         
-        # Left Hand (21 joints)
-        'left_thumb4': 25, 'left_thumb3': 26, 'left_thumb2': 27, 'left_thumb_third_joint': 28,
-        'left_forefinger4': 29, 'left_forefinger3': 30, 'left_forefinger2': 31, 'left_forefinger_third_joint': 32,
-        'left_middle_finger4': 33, 'left_middle_finger3': 34, 'left_middle_finger2': 35, 'left_middle_finger_third_joint': 36,
-        'left_ring_finger4': 37, 'left_ring_finger3': 38, 'left_ring_finger2': 39, 'left_ring_finger_third_joint': 40,
-        'left_pinky_finger4': 41, 'left_pinky_finger3': 42, 'left_pinky_finger2': 43, 'left_pinky_finger_third_joint': 44,
-        'left_wrist': 45,
+        # Left Hand (25 joints)
+        'left_thumb4': 25, 'left_thumb3': 26, 'left_thumb2': 27, 'left_thumb1': 28,
+        'left_forefinger4': 29, 'left_forefinger3': 30, 'left_forefinger2': 31, 'left_forefinger1': 32,
+        'left_middle_finger4': 33, 'left_middle_finger3': 34, 'left_middle_finger2': 35, 'left_middle_finger1': 36,
+        'left_ring_finger4': 37, 'left_ring_finger3': 38, 'left_ring_finger2': 39, 'left_ring_finger1': 40,
+        'left_pinky_finger4': 41, 'left_pinky_finger3': 42, 'left_pinky_finger2': 43, 'left_pinky_finger1': 44,
+        'left_wrist': 45, 'left_hand_root': 46, 'left_thumb_third_joint': 47, 'left_forefinger_third_joint': 48,
+        'left_middle_finger_third_joint': 49,
         
-        # Right Hand (21 joints)
-        'right_thumb4': 50, 'right_thumb3': 51, 'right_thumb2': 52, 'right_thumb_third_joint': 53,
-        'right_forefinger4': 54, 'right_forefinger3': 55, 'right_forefinger2': 56, 'right_forefinger_third_joint': 57,
-        'right_middle_finger4': 58, 'right_middle_finger3': 59, 'right_middle_finger2': 60, 'right_middle_finger_third_joint': 61,
-        'right_ring_finger4': 62, 'right_ring_finger3': 63, 'right_ring_finger2': 64, 'right_ring_finger_third_joint': 65,
-        'right_pinky_finger4': 66, 'right_pinky_finger3': 67, 'right_pinky_finger2': 68, 'right_pinky_finger_third_joint': 69,
-        'right_wrist': 70,
+        # Right Hand (25 joints)
+        'right_thumb4': 50, 'right_thumb3': 51, 'right_thumb2': 52, 'right_thumb1': 53,
+        'right_forefinger4': 54, 'right_forefinger3': 55, 'right_forefinger2': 56, 'right_forefinger1': 57,
+        'right_middle_finger4': 58, 'right_middle_finger3': 59, 'right_middle_finger2': 60, 'right_middle_finger1': 61,
+        'right_ring_finger4': 62, 'right_ring_finger3': 63, 'right_ring_finger2': 64, 'right_ring_finger1': 65,
+        'right_pinky_finger4': 66, 'right_pinky_finger3': 67, 'right_pinky_finger2': 68, 'right_pinky_finger1': 69,
+        'right_wrist': 70, 'right_hand_root': 71, 'right_thumb_third_joint': 72, 'right_forefinger_third_joint': 73,
+        'right_middle_finger_third_joint': 74
     }
     
     grab_keypoints = np.zeros((75, 3))
+    
+    # Helper function to estimate missing joints
+    def estimate_joint(joint1, joint2, ratio=0.5):
+        if joint1 is not None and joint2 is not None:
+            return (joint1 + joint2) * ratio
+        elif joint1 is not None:
+            return joint1
+        elif joint2 is not None:
+            return joint2
+        return None
+
+    # Map known joints
     for coco_name, grab_idx in mapping.items():
         if coco_name in coco_keypoints:
-            grab_keypoints[grab_idx] = coco_keypoints[coco_name][:3]  # Use x, y, confidence
+            grab_keypoints[grab_idx] = coco_keypoints[coco_name][:3]  # Use x, y, z
     
-    # Fill in missing joints with interpolated or estimated values
-    for i in range(75):
-        if np.all(grab_keypoints[i] == 0):
-            nearest_non_zero = np.nonzero(np.any(grab_keypoints != 0, axis=1))[0]
-            if len(nearest_non_zero) > 0:
-                nearest_idx = nearest_non_zero[np.argmin(np.abs(nearest_non_zero - i))]
-                grab_keypoints[i] = grab_keypoints[nearest_idx]
+    # Estimate missing joints
+    # Neck
+    grab_keypoints[23] = estimate_joint(grab_keypoints[5], grab_keypoints[6])
+    
+    # Center of glabella
+    grab_keypoints[24] = estimate_joint(grab_keypoints[1], grab_keypoints[2])
+    
+    # Hand roots
+    grab_keypoints[46] = grab_keypoints[9]  # Left hand root same as wrist
+    grab_keypoints[71] = grab_keypoints[10]  # Right hand root same as wrist
+    
+    # Estimate missing finger joints
+    for hand in ['left', 'right']:
+        base = 25 if hand == 'left' else 50
+        wrist = grab_keypoints[9] if hand == 'left' else grab_keypoints[10]
+        
+        for finger in ['thumb', 'forefinger', 'middle_finger', 'ring_finger', 'pinky_finger']:
+            tip = grab_keypoints[base]
+            if tip is not None and not np.all(tip == 0):
+                # Estimate intermediate joints
+                for i in range(1, 4):
+                    grab_keypoints[base + i] = wrist + (tip - wrist) * (i / 4)
+            
+            base += 4
+    
+    # Estimate third joints for thumb, forefinger, and middle finger
+    for hand in ['left', 'right']:
+        base = 47 if hand == 'left' else 72
+        for finger in ['thumb', 'forefinger', 'middle_finger']:
+            finger_base = 25 if hand == 'left' else 50
+            finger_base += ['thumb', 'forefinger', 'middle_finger'].index(finger) * 4
+            grab_keypoints[base] = estimate_joint(grab_keypoints[finger_base], grab_keypoints[finger_base + 1], 0.25)
+            base += 1
     
     return grab_keypoints
+
 
 # Update preprocess_for_eai function to remove the separate depth estimation step
 def preprocess_for_eai(json_data1, json_data2, input_n=30):
@@ -124,13 +168,10 @@ def preprocess_for_eai(json_data1, json_data2, input_n=30):
     # Reshape the sequence to match the expected input size
     sequence = sequence.reshape(1, input_n, 75, 3)
     
-    print("Sequence shape after interpolation:", sequence.shape)
-    print("Sequence shape after reshaping:", sequence.shape)
-    
     tensor_sequence = torch.tensor(sequence).float()
-    print("Tensor sequence shape:", tensor_sequence.shape)
     
-    return tensor_sequence  # This will be on CPU
+    return tensor_sequence
+
 
 def estimate_depth(keypoints_2d):
     # Simple depth estimation (this is a placeholder and would need a more sophisticated approach)

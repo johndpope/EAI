@@ -98,7 +98,13 @@ def main(opt):
  # Load checkpoint
     train_ckpt_path = './checkpoint/LTD/ckpt_best.pth.tar'
 
+    input_n = opt.input_n
+    output_n = opt.output_n
+    all_n = input_n + output_n
 
+    logger.info("Creating model")
+    # model = GCN_EAI(input_feature=all_n, hidden_feature=opt.linear_size, p_dropout=opt.dropout, 
+    #                 num_stage=opt.num_stage, lh_node_n=55, rh_node_n=55, b_node_n=55)
 
     logger.info("Creating model")
    # model = GCN_EAI(input_feature=all_n, hidden_feature=opt.linear_size, p_dropout=opt.dropout, 
