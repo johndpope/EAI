@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from util.grab import Grab
 from model_others.EAI import GCN_EAI
 from util.opt import Options
-
+import os
 from util import loss_func
 from helper import get_dct_norm,get_idct_norm,get_dct,get_idct
 logger = get_logger(__name__)
@@ -32,18 +32,34 @@ def main(opt):
     idct_trans = get_idct_norm if opt.is_hand_norm else get_idct
 
     # Load checkpoint
-    train_script_name = f"ckpt_eai_dct_n{input_n}_out{output_n}_dctn{all_n}"
-    train_ckpt_path = f'./checkpoint/{opt.exp}/{train_script_name}_best.pth.tar'
-    
-    logger.info(f"Loading checkpoint from '{train_ckpt_path}'")
-    ckpt = accelerator.load_state(train_ckpt_path)
-    
-    start_epoch = ckpt['epoch']
-    train_loss = ckpt['train_loss']
+    train_ckpt_path = './checkpoint/LTD/ckpt_best.pth.tar'
 
-    new_ckpt_state_dict = {k[7:]: v for k, v in ckpt['state_dict'].items()}
-    model.load_state_dict(new_ckpt_state_dict)
-    logger.info(f"Checkpoint loaded (epoch: {start_epoch} | err: {train_loss})")
+    if not os.path.isfile(train_ckpt_path):
+        logger.error(f"Checkpoint file not found: {train_ckpt_path}")
+        logger.info("Please check the following:")
+        logger.info("1. Ensure the path to the checkpoint file is correct.")
+        logger.info("2. Verify that the checkpoint file exists in the specified location.")
+        logger.info("3. Check if you have the necessary permissions to access the file.")
+        raise FileNotFoundError(f"Checkpoint file not found: {train_ckpt_path}")
+
+    logger.info(f"Loading checkpoint from '{train_ckpt_path}'")
+    try:
+        # Use torch.load instead of accelerator.load_state
+        ckpt = torch.load(train_ckpt_path, map_location=accelerator.device)
+    except Exception as e:
+        logger.error(f"Error loading checkpoint: {str(e)}")
+        raise
+    start_epoch = ckpt['epoch']
+    err_best = ckpt['err_best']
+    lr = ckpt['lr']
+
+    # Load model state dict
+    model.load_state_dict(ckpt['state_dict'])
+
+
+
+    logger.info(f"Checkpoint loaded (epoch: {start_epoch} | err: {err_best} | lr: {lr})")
+
 
     # Prepare test dataset
     test_dataset = Grab(path_to_data=opt.grab_data_dict, input_n=input_n, output_n=output_n, split=2, 
