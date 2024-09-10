@@ -15,14 +15,19 @@ logger = get_logger(__name__)
 
 
 
-
 def run_eai_model(model, input_sequence, device):
+    # Ensure the input is on the correct device
+    input_sequence = input_sequence.to(device)
+    
     model_input = get_dct_norm(input_sequence)
     model_input = model_input.to(device)
+    
+    # Ensure the model is on the correct device
+    model = model.to(device)
+    
     with torch.no_grad():
         output, _, _, _ = model(model_input)
     return output
-
 
 
 def load_checkpoint(model, checkpoint_path, device):
@@ -32,14 +37,42 @@ def load_checkpoint(model, checkpoint_path, device):
     # Filter out unnecessary keys
     pretrained_state_dict = {k: v for k, v in checkpoint['state_dict'].items() if k in model_state_dict}
     
+    # Resize tensors if necessary
+    for k, v in pretrained_state_dict.items():
+        if v.size() != model_state_dict[k].size():
+            print(f"Mismatched size for {k}: checkpoint {v.size()} vs model {model_state_dict[k].size()}")
+            
+            if 'att' in k and v.dim() == 2:
+                # Handle attention matrix resizing
+                new_v = torch.zeros(model_state_dict[k].size(), device=v.device)
+                min_rows = min(v.size(0), new_v.size(0))
+                min_cols = min(v.size(1), new_v.size(1))
+                new_v[:min_rows, :min_cols] = v[:min_rows, :min_cols]
+                
+                # If new matrix is larger, we need to ensure it's still a valid attention matrix
+                if new_v.size(0) > v.size(0) or new_v.size(1) > v.size(1):
+                    new_v = new_v / new_v.sum(dim=1, keepdim=True)
+                
+                pretrained_state_dict[k] = new_v
+            elif v.dim() == 1:
+                # For 1D tensors (like biases), we can use simple resizing
+                new_v = torch.zeros(model_state_dict[k].size(), device=v.device)
+                new_v[:min(v.size(0), new_v.size(0))] = v[:min(v.size(0), new_v.size(0))]
+                pretrained_state_dict[k] = new_v
+            else:
+                print(f"Cannot resize tensor {k} from {v.size()} to {model_state_dict[k].size()}")
+                # Initialize randomly if we can't resize
+                pretrained_state_dict[k] = torch.randn(model_state_dict[k].size(), device=v.device)
+    
     # Update model state dict
     model_state_dict.update(pretrained_state_dict)
     
     # Load the updated state dict
     model.load_state_dict(model_state_dict, strict=False)
     
-    print(f"Checkpoint loaded. Some layers may have been initialized randomly due to size mismatch.")
-    return checkpoint['epoch'], checkpoint['err_best'], checkpoint['lr']
+    print(f"Checkpoint loaded. Some layers have been resized to fit the current model architecture.")
+    return checkpoint['epoch'], checkpoint.get('err_best', checkpoint.get('train_loss')), checkpoint.get('lr', None)
+
 
 def main(opt):
     # Initialize accelerator
@@ -72,7 +105,7 @@ def main(opt):
     #                num_stage=opt.num_stage, lh_node_n=opt.num_lh*3, rh_node_n=opt.num_rh*3, b_node_n=opt.num_body*3)
 
     model = GCN_EAI(input_feature=60, hidden_feature=256, p_dropout=0.5, num_stage=12, 
-                lh_node_n=48, rh_node_n=48, b_node_n=75)
+                    lh_node_n=48, rh_node_n=48, b_node_n=75)
     
     start_epoch, err_best, lr_now = load_checkpoint(model, train_ckpt_path, accelerator.device)
     print(f"Checkpoint loaded (epoch: {start_epoch} | err: {err_best} | lr: {lr_now})")

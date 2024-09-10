@@ -76,26 +76,30 @@ def map_coco_to_grab(coco_keypoints):
         'left_shoulder': 5, 'right_shoulder': 6, 'left_elbow': 7, 'right_elbow': 8,
         'left_wrist': 9, 'right_wrist': 10, 'left_hip': 11, 'right_hip': 12,
         'left_knee': 13, 'right_knee': 14, 'left_ankle': 15, 'right_ankle': 16,
-        # Fill in the remaining body joints with placeholder values
         
-        # Left Hand (25 joints)
-        'left_thumb_tip': 25, 'left_index_tip': 28, 'left_middle_tip': 31,
-        'left_ring_tip': 34, 'left_pinky_tip': 37,
-        # Fill in the remaining left hand joints with placeholder values
+        # Left Hand (21 joints)
+        'left_thumb4': 25, 'left_thumb3': 26, 'left_thumb2': 27, 'left_thumb_third_joint': 28,
+        'left_forefinger4': 29, 'left_forefinger3': 30, 'left_forefinger2': 31, 'left_forefinger_third_joint': 32,
+        'left_middle_finger4': 33, 'left_middle_finger3': 34, 'left_middle_finger2': 35, 'left_middle_finger_third_joint': 36,
+        'left_ring_finger4': 37, 'left_ring_finger3': 38, 'left_ring_finger2': 39, 'left_ring_finger_third_joint': 40,
+        'left_pinky_finger4': 41, 'left_pinky_finger3': 42, 'left_pinky_finger2': 43, 'left_pinky_finger_third_joint': 44,
+        'left_wrist': 45,
         
-        # Right Hand (25 joints)
-        'right_thumb_tip': 50, 'right_index_tip': 53, 'right_middle_tip': 56,
-        'right_ring_tip': 59, 'right_pinky_tip': 62
-        # Fill in the remaining right hand joints with placeholder values
+        # Right Hand (21 joints)
+        'right_thumb4': 50, 'right_thumb3': 51, 'right_thumb2': 52, 'right_thumb_third_joint': 53,
+        'right_forefinger4': 54, 'right_forefinger3': 55, 'right_forefinger2': 56, 'right_forefinger_third_joint': 57,
+        'right_middle_finger4': 58, 'right_middle_finger3': 59, 'right_middle_finger2': 60, 'right_middle_finger_third_joint': 61,
+        'right_ring_finger4': 62, 'right_ring_finger3': 63, 'right_ring_finger2': 64, 'right_ring_finger_third_joint': 65,
+        'right_pinky_finger4': 66, 'right_pinky_finger3': 67, 'right_pinky_finger2': 68, 'right_pinky_finger_third_joint': 69,
+        'right_wrist': 70,
     }
     
     grab_keypoints = np.zeros((75, 3))
     for coco_name, grab_idx in mapping.items():
         if coco_name in coco_keypoints:
-            grab_keypoints[grab_idx] = coco_keypoints[coco_name]
+            grab_keypoints[grab_idx] = coco_keypoints[coco_name][:3]  # Use x, y, confidence
     
     # Fill in missing joints with interpolated or estimated values
-    # This is a simplified approach and may need to be refined
     for i in range(75):
         if np.all(grab_keypoints[i] == 0):
             nearest_non_zero = np.nonzero(np.any(grab_keypoints != 0, axis=1))[0]
@@ -108,22 +112,25 @@ def map_coco_to_grab(coco_keypoints):
 # Update preprocess_for_eai function to remove the separate depth estimation step
 def preprocess_for_eai(json_data1, json_data2, input_n=30):
     # Process both poses
-    coco_keypoints1 = {k: np.array(v[:2]) for k, v in json_data1[0].items() if len(v) >= 2}
-    coco_keypoints2 = {k: np.array(v[:2]) for k, v in json_data2[0].items() if len(v) >= 2}
+    coco_keypoints1 = json_data1[0]
+    coco_keypoints2 = json_data2[0]
     
-    grab_keypoints_2d1 = map_coco_to_grab(coco_keypoints1)
-    grab_keypoints_2d2 = map_coco_to_grab(coco_keypoints2)
-    
-    grab_keypoints_3d1 = estimate_depth(grab_keypoints_2d1)
-    grab_keypoints_3d2 = estimate_depth(grab_keypoints_2d2)
+    grab_keypoints_3d1 = map_coco_to_grab(coco_keypoints1)
+    grab_keypoints_3d2 = map_coco_to_grab(coco_keypoints2)
     
     # Interpolate between the two poses
     sequence = interpolate_poses(grab_keypoints_3d1, grab_keypoints_3d2, input_n)
     
-    # Duplicate the feature dimension to match the expected input size
-    sequence = np.repeat(sequence, 2, axis=-1)
+    # Reshape the sequence to match the expected input size
+    sequence = sequence.reshape(1, input_n, 75, 3)
     
-    return torch.tensor(sequence).float().unsqueeze(0)  # Add batch dimension
+    print("Sequence shape after interpolation:", sequence.shape)
+    print("Sequence shape after reshaping:", sequence.shape)
+    
+    tensor_sequence = torch.tensor(sequence).float()
+    print("Tensor sequence shape:", tensor_sequence.shape)
+    
+    return tensor_sequence  # This will be on CPU
 
 def estimate_depth(keypoints_2d):
     # Simple depth estimation (this is a placeholder and would need a more sophisticated approach)
@@ -140,22 +147,6 @@ def generate_sequence(initial_pose, num_frames=30):
 def interpolate_poses(pose1, pose2, num_frames):
     return np.array([pose1 * (1 - i/(num_frames-1)) + pose2 * (i/(num_frames-1)) 
                      for i in range(num_frames)])
-
-# def preprocess_for_eai(json_data1, json_data2, input_n=30):
-#     # Process both poses
-#     coco_keypoints1 = {k: np.array(v[:2]) for k, v in json_data1[0].items() if len(v) >= 2}
-#     coco_keypoints2 = {k: np.array(v[:2]) for k, v in json_data2[0].items() if len(v) >= 2}
-    
-#     grab_keypoints_2d1 = map_coco_to_grab(coco_keypoints1)
-#     grab_keypoints_2d2 = map_coco_to_grab(coco_keypoints2)
-    
-#     grab_keypoints_3d1 = estimate_depth(grab_keypoints_2d1)
-#     grab_keypoints_3d2 = estimate_depth(grab_keypoints_2d2)
-    
-#     # Interpolate between the two poses
-#     sequence = interpolate_poses(grab_keypoints_3d1, grab_keypoints_3d2, input_n)
-    
-#     return torch.tensor(sequence).float().unsqueeze(0)  # Add batch dimension
 
 
 
