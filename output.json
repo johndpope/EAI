@@ -1,0 +1,1544 @@
+[
+  {
+    "nose": [
+      89.0,
+      22.0,
+      0.6260046362876892
+    ],
+    "left_eye": [
+      100.0,
+      15.0,
+      0.6221520304679871
+    ],
+    "right_eye": [
+      74.0,
+      19.0,
+      0.5304969549179077
+    ],
+    "left_ear": [
+      128.0,
+      19.0,
+      0.7010226845741272
+    ],
+    "right_ear": [
+      69.0,
+      25.0,
+      0.4001823365688324
+    ],
+    "left_shoulder": [
+      160.0,
+      51.0,
+      0.34254756569862366
+    ],
+    "right_shoulder": [
+      38.0,
+      52.0,
+      0.42242032289505005
+    ],
+    "left_elbow": [
+      161.0,
+      86.0,
+      0.727115273475647
+    ],
+    "right_elbow": [
+      27.0,
+      80.0,
+      0.6976348757743835
+    ],
+    "left_hip": [
+      115.0,
+      128.0,
+      0.3124130666255951
+    ],
+    "right_hip": [
+      68.0,
+      116.0,
+      0.15110211074352264
+    ],
+    "left_knee": [
+      77.0,
+      176.0,
+      0.6121360063552856
+    ],
+    "right_knee": [
+      21.0,
+      121.0,
+      0.4485893249511719
+    ],
+    "left_ankle": [
+      39.0,
+      229.0,
+      0.7693837881088257
+    ],
+    "right_ankle": [
+      83.0,
+      230.0,
+      0.812014639377594
+    ],
+    "left_big_toe": [
+      13.0,
+      248.0,
+      0.7684159874916077
+    ],
+    "left_small_toe": [
+      30.0,
+      251.0,
+      0.6761162877082825
+    ],
+    "left_heel": [
+      39.0,
+      239.0,
+      0.6130841374397278
+    ],
+    "right_big_toe": [
+      99.0,
+      246.0,
+      0.7907611131668091
+    ],
+    "right_small_toe": [
+      77.0,
+      243.0,
+      0.6757281422615051
+    ],
+    "right_heel": [
+      80.0,
+      238.0,
+      0.5302802324295044
+    ],
+    "right_thumb4": [
+      64.0,
+      40.0,
+      0.714278519153595
+    ],
+    "right_thumb3": [
+      61.0,
+      42.0,
+      0.8312249779701233
+    ],
+    "right_thumb2": [
+      58.0,
+      44.0,
+      0.7947651147842407
+    ],
+    "right_thumb_third_joint": [
+      54.0,
+      49.0,
+      0.7751872539520264
+    ],
+    "right_forefinger4": [
+      70.0,
+      38.0,
+      0.844357967376709
+    ],
+    "right_forefinger3": [
+      65.0,
+      35.0,
+      0.8891633749008179
+    ],
+    "right_forefinger2": [
+      57.0,
+      36.0,
+      0.8919612765312195
+    ],
+    "right_forefinger_third_joint": [
+      44.0,
+      40.0,
+      0.835549533367157
+    ],
+    "right_middle_finger4": [
+      73.0,
+      39.0,
+      0.9640122652053833
+    ],
+    "right_middle_finger3": [
+      67.0,
+      36.0,
+      1.0198725461959839
+    ],
+    "right_middle_finger2": [
+      59.0,
+      35.0,
+      0.9377032518386841
+    ],
+    "right_middle_finger_third_joint": [
+      44.0,
+      39.0,
+      0.8772625923156738
+    ],
+    "right_ring_finger4": [
+      70.0,
+      39.0,
+      0.881767749786377
+    ],
+    "right_ring_finger3": [
+      67.0,
+      36.0,
+      0.9734869599342346
+    ],
+    "right_ring_finger2": [
+      59.0,
+      36.0,
+      0.9307703971862793
+    ],
+    "right_ring_finger_third_joint": [
+      48.0,
+      39.0,
+      0.8261379599571228
+    ],
+    "right_pinky_finger4": [
+      68.0,
+      41.0,
+      0.896329402923584
+    ],
+    "right_pinky_finger3": [
+      64.0,
+      39.0,
+      0.9061934351921082
+    ],
+    "right_pinky_finger2": [
+      60.0,
+      36.0,
+      0.879973828792572
+    ],
+    "right_pinky_finger_third_joint": [
+      48.0,
+      39.0,
+      0.795440673828125
+    ],
+    "right_wrist": [
+      49.0,
+      53.0,
+      0.8646348714828491
+    ],
+    "left_thumb4": [
+      104.0,
+      138.0,
+      0.9838098287582397
+    ],
+    "left_thumb3": [
+      108.0,
+      133.0,
+      0.9652159214019775
+    ],
+    "left_thumb2": [
+      114.0,
+      128.0,
+      0.9428349137306213
+    ],
+    "left_thumb_third_joint": [
+      124.0,
+      124.0,
+      0.8674500584602356
+    ],
+    "left_forefinger4": [
+      105.0,
+      142.0,
+      0.9623926877975464
+    ],
+    "left_forefinger3": [
+      109.0,
+      142.0,
+      0.946956992149353
+    ],
+    "left_forefinger2": [
+      114.0,
+      140.0,
+      0.9963270425796509
+    ],
+    "left_forefinger_third_joint": [
+      120.0,
+      132.0,
+      0.8783700466156006
+    ],
+    "left_middle_finger4": [
+      114.0,
+      140.0,
+      0.7522284388542175
+    ],
+    "left_middle_finger3": [
+      117.0,
+      141.0,
+      0.8301895260810852
+    ],
+    "left_middle_finger2": [
+      119.0,
+      141.0,
+      0.9445456266403198
+    ],
+    "left_middle_finger_third_joint": [
+      128.0,
+      135.0,
+      0.8973973989486694
+    ],
+    "left_ring_finger4": [
+      127.0,
+      138.0,
+      0.7113556861877441
+    ],
+    "left_ring_finger3": [
+      125.0,
+      140.0,
+      0.7957383990287781
+    ],
+    "left_ring_finger2": [
+      129.0,
+      142.0,
+      0.9126001596450806
+    ],
+    "left_ring_finger_third_joint": [
+      133.0,
+      135.0,
+      0.8793815970420837
+    ],
+    "left_pinky_finger4": [
+      132.0,
+      138.0,
+      0.8121721148490906
+    ],
+    "left_pinky_finger3": [
+      133.0,
+      140.0,
+      0.8397510051727295
+    ],
+    "left_pinky_finger2": [
+      136.0,
+      140.0,
+      0.9123334884643555
+    ],
+    "left_pinky_finger_third_joint": [
+      141.0,
+      135.0,
+      0.8772568106651306
+    ],
+    "left_wrist": [
+      139.0,
+      121.0,
+      0.7644837498664856
+    ],
+    "left_olecranon": [
+      163.0,
+      90.0,
+      0.605482280254364
+    ],
+    "right_olecranon": [
+      26.0,
+      85.0,
+      0.6139068007469177
+    ],
+    "left_cubital_fossa": [
+      157.0,
+      87.0,
+      0.7048455476760864
+    ],
+    "right_cubital_fossa": [
+      29.0,
+      74.0,
+      0.6150767803192139
+    ],
+    "left_acromion": [
+      157.0,
+      47.0,
+      0.35822543501853943
+    ],
+    "right_acromion": [
+      44.0,
+      46.0,
+      0.47232192754745483
+    ],
+    "neck": [
+      108.0,
+      36.0,
+      0.46553492546081543
+    ],
+    "center_of_glabella": [
+      90.0,
+      16.0,
+      0.4468023478984833
+    ],
+    "center_of_nose_root": [
+      90.0,
+      16.0,
+      0.5039800405502319
+    ],
+    "tip_of_nose_bridge": [
+      89.0,
+      22.0,
+      0.6385008692741394
+    ],
+    "midpoint_1_of_nose_bridge": [
+      89.0,
+      21.0,
+      0.5850735306739807
+    ],
+    "midpoint_2_of_nose_bridge": [
+      89.0,
+      18.0,
+      0.5075998306274414
+    ],
+    "midpoint_3_of_nose_bridge": [
+      89.0,
+      22.0,
+      0.6235455274581909
+    ],
+    "center_of_labiomental_groove": [
+      99.0,
+      30.0,
+      0.5781676173210144
+    ],
+    "tip_of_chin": [
+      103.0,
+      32.0,
+      0.48643365502357483
+    ],
+    "upper_startpoint_of_r_eyebrow": [
+      93.0,
+      15.0,
+      0.345660001039505
+    ],
+    "lower_startpoint_of_r_eyebrow": [
+      93.0,
+      15.0,
+      0.37155792117118835
+    ],
+    "end_of_r_eyebrow": [
+      68.0,
+      20.0,
+      0.33717361092567444
+    ],
+    "upper_midpoint_1_of_r_eyebrow": [
+      72.0,
+      16.0,
+      0.2917958199977875
+    ],
+    "lower_midpoint_1_of_r_eyebrow": [
+      73.0,
+      19.0,
+      0.3259662985801697
+    ],
+    "upper_midpoint_2_of_r_eyebrow": [
+      69.0,
+      19.0,
+      0.3340179920196533
+    ],
+    "upper_midpoint_3_of_r_eyebrow": [
+      76.0,
+      16.0,
+      0.32361558079719543
+    ],
+    "lower_midpoint_2_of_r_eyebrow": [
+      69.0,
+      19.0,
+      0.3481464087963104
+    ],
+    "lower_midpoint_3_of_r_eyebrow": [
+      76.0,
+      16.0,
+      0.3225497007369995
+    ],
+    "upper_startpoint_of_l_eyebrow": [
+      93.0,
+      15.0,
+      0.3635302782058716
+    ],
+    "lower_startpoint_of_l_eyebrow": [
+      93.0,
+      15.0,
+      0.4008099436759949
+    ],
+    "end_of_l_eyebrow": [
+      106.0,
+      11.0,
+      0.29261574149131775
+    ],
+    "upper_midpoint_1_of_l_eyebrow": [
+      101.0,
+      12.0,
+      0.2946867346763611
+    ],
+    "lower_midpoint_1_of_l_eyebrow": [
+      100.0,
+      12.0,
+      0.3465888798236847
+    ],
+    "upper_midpoint_2_of_l_eyebrow": [
+      97.0,
+      15.0,
+      0.3239540755748749
+    ],
+    "upper_midpoint_3_of_l_eyebrow": [
+      102.0,
+      12.0,
+      0.2919695973396301
+    ],
+    "lower_midpoint_2_of_l_eyebrow": [
+      98.0,
+      16.0,
+      0.37137579917907715
+    ],
+    "lower_midpoint_3_of_l_eyebrow": [
+      102.0,
+      12.0,
+      0.32439783215522766
+    ],
+    "l_inner_end_of_upper_lash_line": [
+      99.0,
+      16.0,
+      0.5935960412025452
+    ],
+    "l_outer_end_of_upper_lash_line": [
+      104.0,
+      12.0,
+      0.5797572135925293
+    ],
+    "l_centerpoint_of_upper_lash_line": [
+      100.0,
+      16.0,
+      0.6191508173942566
+    ],
+    "l_midpoint_2_of_upper_lash_line": [
+      100.0,
+      15.0,
+      0.5767531991004944
+    ],
+    "l_midpoint_1_of_upper_lash_line": [
+      100.0,
+      16.0,
+      0.5894861817359924
+    ],
+    "l_midpoint_6_of_upper_lash_line": [
+      102.0,
+      16.0,
+      0.5467636585235596
+    ],
+    "l_midpoint_5_of_upper_lash_line": [
+      100.0,
+      15.0,
+      0.6044126749038696
+    ],
+    "l_midpoint_4_of_upper_lash_line": [
+      100.0,
+      16.0,
+      0.6141912341117859
+    ],
+    "l_midpoint_3_of_upper_lash_line": [
+      100.0,
+      16.0,
+      0.5538899898529053
+    ],
+    "l_outer_end_of_upper_eyelid_line": [
+      102.0,
+      12.0,
+      0.5839394927024841
+    ],
+    "l_midpoint_6_of_upper_eyelid_line": [
+      102.0,
+      16.0,
+      0.5502530336380005
+    ],
+    "l_midpoint_2_of_upper_eyelid_line": [
+      100.0,
+      15.0,
+      0.5765799880027771
+    ],
+    "l_midpoint_5_of_upper_eyelid_line": [
+      100.0,
+      15.0,
+      0.6023280620574951
+    ],
+    "l_centerpoint_of_upper_eyelid_line": [
+      100.0,
+      16.0,
+      0.6161162853240967
+    ],
+    "l_midpoint_4_of_upper_eyelid_line": [
+      100.0,
+      16.0,
+      0.6097747683525085
+    ],
+    "l_midpoint_1_of_upper_eyelid_line": [
+      100.0,
+      16.0,
+      0.5874701738357544
+    ],
+    "l_midpoint_3_of_upper_eyelid_line": [
+      100.0,
+      15.0,
+      0.5566388368606567
+    ],
+    "l_midpoint_6_of_upper_crease_line": [
+      102.0,
+      16.0,
+      0.5322354435920715
+    ],
+    "l_midpoint_2_of_upper_crease_line": [
+      100.0,
+      15.0,
+      0.5732232332229614
+    ],
+    "l_midpoint_5_of_upper_crease_line": [
+      100.0,
+      15.0,
+      0.6081920862197876
+    ],
+    "l_centerpoint_of_upper_crease_line": [
+      100.0,
+      15.0,
+      0.6238059401512146
+    ],
+    "l_midpoint_4_of_upper_crease_line": [
+      100.0,
+      15.0,
+      0.6104628443717957
+    ],
+    "l_midpoint_1_of_upper_crease_line": [
+      100.0,
+      15.0,
+      0.5750076770782471
+    ],
+    "l_midpoint_3_of_upper_crease_line": [
+      100.0,
+      15.0,
+      0.5334789156913757
+    ],
+    "r_inner_end_of_upper_lash_line": [
+      80.0,
+      20.0,
+      0.42415913939476013
+    ],
+    "r_outer_end_of_upper_lash_line": [
+      73.0,
+      21.0,
+      0.5819964408874512
+    ],
+    "r_centerpoint_of_upper_lash_line": [
+      74.0,
+      19.0,
+      0.5162349343299866
+    ],
+    "r_midpoint_1_of_upper_lash_line": [
+      74.0,
+      19.0,
+      0.4858686625957489
+    ],
+    "r_midpoint_2_of_upper_lash_line": [
+      74.0,
+      19.0,
+      0.4932897984981537
+    ],
+    "r_midpoint_3_of_upper_lash_line": [
+      73.0,
+      19.0,
+      0.4581931531429291
+    ],
+    "r_midpoint_4_of_upper_lash_line": [
+      74.0,
+      19.0,
+      0.506731390953064
+    ],
+    "r_midpoint_5_of_upper_lash_line": [
+      74.0,
+      19.0,
+      0.510158896446228
+    ],
+    "r_midpoint_6_of_upper_lash_line": [
+      74.0,
+      19.0,
+      0.47317877411842346
+    ],
+    "r_outer_end_of_upper_eyelid_line": [
+      73.0,
+      21.0,
+      0.5828057527542114
+    ],
+    "r_midpoint_3_of_upper_eyelid_line": [
+      74.0,
+      19.0,
+      0.46168720722198486
+    ],
+    "r_midpoint_1_of_upper_eyelid_line": [
+      74.0,
+      19.0,
+      0.4863238036632538
+    ],
+    "r_midpoint_4_of_upper_eyelid_line": [
+      74.0,
+      19.0,
+      0.5052086114883423
+    ],
+    "r_centerpoint_of_upper_eyelid_line": [
+      74.0,
+      19.0,
+      0.514816403388977
+    ],
+    "r_midpoint_5_of_upper_eyelid_line": [
+      74.0,
+      19.0,
+      0.5087597370147705
+    ],
+    "r_midpoint_2_of_upper_eyelid_line": [
+      74.0,
+      19.0,
+      0.4947027266025543
+    ],
+    "r_midpoint_6_of_upper_eyelid_line": [
+      74.0,
+      19.0,
+      0.4770423471927643
+    ],
+    "r_midpoint_3_of_upper_crease_line": [
+      73.0,
+      19.0,
+      0.468006432056427
+    ],
+    "r_midpoint_1_of_upper_crease_line": [
+      73.0,
+      19.0,
+      0.5009955763816833
+    ],
+    "r_midpoint_4_of_upper_crease_line": [
+      73.0,
+      19.0,
+      0.5237057209014893
+    ],
+    "r_centerpoint_of_upper_crease_line": [
+      73.0,
+      19.0,
+      0.5302644968032837
+    ],
+    "r_midpoint_5_of_upper_crease_line": [
+      73.0,
+      19.0,
+      0.5161710977554321
+    ],
+    "r_midpoint_2_of_upper_crease_line": [
+      73.0,
+      19.0,
+      0.48810821771621704
+    ],
+    "r_midpoint_6_of_upper_crease_line": [
+      74.0,
+      19.0,
+      0.46023303270339966
+    ],
+    "l_inner_end_of_lower_lash_line": [
+      99.0,
+      16.0,
+      0.5967438220977783
+    ],
+    "l_outer_end_of_lower_lash_line": [
+      102.0,
+      12.0,
+      0.5819399952888489
+    ],
+    "l_centerpoint_of_lower_lash_line": [
+      100.0,
+      16.0,
+      0.6419610977172852
+    ],
+    "l_midpoint_2_of_lower_lash_line": [
+      102.0,
+      16.0,
+      0.5960335731506348
+    ],
+    "l_midpoint_1_of_lower_lash_line": [
+      100.0,
+      16.0,
+      0.6191754341125488
+    ],
+    "l_midpoint_6_of_lower_lash_line": [
+      102.0,
+      16.0,
+      0.5605723857879639
+    ],
+    "l_midpoint_5_of_lower_lash_line": [
+      102.0,
+      16.0,
+      0.62530916929245
+    ],
+    "l_midpoint_4_of_lower_lash_line": [
+      100.0,
+      16.0,
+      0.6438674330711365
+    ],
+    "l_midpoint_3_of_lower_lash_line": [
+      100.0,
+      16.0,
+      0.5745164155960083
+    ],
+    "l_outer_end_of_lower_eyelid_line": [
+      102.0,
+      12.0,
+      0.5831354260444641
+    ],
+    "l_midpoint_6_of_lower_eyelid_line": [
+      102.0,
+      16.0,
+      0.5618044137954712
+    ],
+    "l_midpoint_2_of_lower_eyelid_line": [
+      102.0,
+      16.0,
+      0.5960360169410706
+    ],
+    "l_midpoint_5_of_lower_eyelid_line": [
+      102.0,
+      16.0,
+      0.6233957409858704
+    ],
+    "l_centerpoint_of_lower_eyelid_line": [
+      100.0,
+      16.0,
+      0.6395717263221741
+    ],
+    "l_midpoint_4_of_lower_eyelid_line": [
+      100.0,
+      16.0,
+      0.641247034072876
+    ],
+    "l_midpoint_1_of_lower_eyelid_line": [
+      100.0,
+      16.0,
+      0.617215633392334
+    ],
+    "l_midpoint_3_of_lower_eyelid_line": [
+      100.0,
+      16.0,
+      0.5748944878578186
+    ],
+    "r_inner_end_of_lower_lash_line": [
+      80.0,
+      20.0,
+      0.4245356619358063
+    ],
+    "r_outer_end_of_lower_lash_line": [
+      73.0,
+      21.0,
+      0.583628237247467
+    ],
+    "r_centerpoint_of_lower_lash_line": [
+      74.0,
+      19.0,
+      0.5290234088897705
+    ],
+    "r_midpoint_1_of_lower_lash_line": [
+      74.0,
+      19.0,
+      0.5031768679618835
+    ],
+    "r_midpoint_2_of_lower_lash_line": [
+      74.0,
+      19.0,
+      0.499360054731369
+    ],
+    "r_midpoint_3_of_lower_lash_line": [
+      74.0,
+      19.0,
+      0.48254913091659546
+    ],
+    "r_midpoint_4_of_lower_lash_line": [
+      74.0,
+      19.0,
+      0.5208612084388733
+    ],
+    "r_midpoint_5_of_lower_lash_line": [
+      74.0,
+      19.0,
+      0.521386981010437
+    ],
+    "r_midpoint_6_of_lower_lash_line": [
+      74.0,
+      19.0,
+      0.46668297052383423
+    ],
+    "r_outer_end_of_lower_eyelid_line": [
+      73.0,
+      21.0,
+      0.5821863412857056
+    ],
+    "r_midpoint_3_of_lower_eyelid_line": [
+      74.0,
+      19.0,
+      0.4852796792984009
+    ],
+    "r_midpoint_1_of_lower_eyelid_line": [
+      74.0,
+      19.0,
+      0.5045326352119446
+    ],
+    "r_midpoint_4_of_lower_eyelid_line": [
+      74.0,
+      19.0,
+      0.5211549997329712
+    ],
+    "r_centerpoint_of_lower_eyelid_line": [
+      74.0,
+      19.0,
+      0.5287724733352661
+    ],
+    "r_midpoint_5_of_lower_eyelid_line": [
+      74.0,
+      19.0,
+      0.5225794911384583
+    ],
+    "r_midpoint_2_of_lower_eyelid_line": [
+      74.0,
+      19.0,
+      0.5008470416069031
+    ],
+    "r_midpoint_6_of_lower_eyelid_line": [
+      74.0,
+      19.0,
+      0.46925994753837585
+    ],
+    "tip_of_nose": [
+      89.0,
+      22.0,
+      0.6312418580055237
+    ],
+    "bottom_center_of_nose": [
+      93.0,
+      24.0,
+      0.6463807821273804
+    ],
+    "r_outer_corner_of_nose": [
+      89.0,
+      26.0,
+      0.5664024949073792
+    ],
+    "l_outer_corner_of_nose": [
+      97.0,
+      24.0,
+      0.6511721014976501
+    ],
+    "inner_corner_of_r_nostril": [
+      93.0,
+      24.0,
+      0.6090337038040161
+    ],
+    "outer_corner_of_r_nostril": [
+      89.0,
+      24.0,
+      0.5729015469551086
+    ],
+    "upper_corner_of_r_nostril": [
+      89.0,
+      24.0,
+      0.6225928068161011
+    ],
+    "inner_corner_of_l_nostril": [
+      97.0,
+      24.0,
+      0.6593770384788513
+    ],
+    "outer_corner_of_l_nostril": [
+      97.0,
+      24.0,
+      0.6520759463310242
+    ],
+    "upper_corner_of_l_nostril": [
+      97.0,
+      24.0,
+      0.6345879435539246
+    ],
+    "r_outer_corner_of_mouth": [
+      88.0,
+      30.0,
+      0.5469265580177307
+    ],
+    "l_outer_corner_of_mouth": [
+      104.0,
+      25.0,
+      0.6294687986373901
+    ],
+    "center_of_cupid_bow": [
+      97.0,
+      26.0,
+      0.6560183763504028
+    ],
+    "center_of_lower_outer_lip": [
+      99.0,
+      29.0,
+      0.5891929268836975
+    ],
+    "midpoint_1_of_upper_outer_lip": [
+      97.0,
+      26.0,
+      0.4983235001564026
+    ],
+    "midpoint_2_of_upper_outer_lip": [
+      101.0,
+      26.0,
+      0.5334595441818237
+    ],
+    "midpoint_1_of_lower_outer_lip": [
+      99.0,
+      28.0,
+      0.4652160108089447
+    ],
+    "midpoint_2_of_lower_outer_lip": [
+      103.0,
+      28.0,
+      0.5053919553756714
+    ],
+    "midpoint_3_of_upper_outer_lip": [
+      101.0,
+      26.0,
+      0.41262027621269226
+    ],
+    "midpoint_4_of_upper_outer_lip": [
+      97.0,
+      26.0,
+      0.6173483729362488
+    ],
+    "midpoint_5_of_upper_outer_lip": [
+      97.0,
+      26.0,
+      0.6288962960243225
+    ],
+    "midpoint_6_of_upper_outer_lip": [
+      101.0,
+      26.0,
+      0.4541977047920227
+    ],
+    "midpoint_3_of_lower_outer_lip": [
+      103.0,
+      28.0,
+      0.39206448197364807
+    ],
+    "midpoint_4_of_lower_outer_lip": [
+      99.0,
+      28.0,
+      0.5465101003646851
+    ],
+    "midpoint_5_of_lower_outer_lip": [
+      99.0,
+      28.0,
+      0.5595936179161072
+    ],
+    "midpoint_6_of_lower_outer_lip": [
+      103.0,
+      26.0,
+      0.4464767873287201
+    ],
+    "r_inner_corner_of_mouth": [
+      88.0,
+      30.0,
+      0.5448004007339478
+    ],
+    "l_inner_corner_of_mouth": [
+      104.0,
+      25.0,
+      0.6363633871078491
+    ],
+    "center_of_upper_inner_lip": [
+      97.0,
+      26.0,
+      0.6285595297813416
+    ],
+    "center_of_lower_inner_lip": [
+      99.0,
+      28.0,
+      0.5843067169189453
+    ],
+    "midpoint_1_of_upper_inner_lip": [
+      99.0,
+      26.0,
+      0.49770715832710266
+    ],
+    "midpoint_2_of_upper_inner_lip": [
+      101.0,
+      26.0,
+      0.5325947999954224
+    ],
+    "midpoint_1_of_lower_inner_lip": [
+      101.0,
+      26.0,
+      0.4739172160625458
+    ],
+    "midpoint_2_of_lower_inner_lip": [
+      101.0,
+      26.0,
+      0.5107706785202026
+    ],
+    "midpoint_3_of_upper_inner_lip": [
+      101.0,
+      26.0,
+      0.4201960861682892
+    ],
+    "midpoint_4_of_upper_inner_lip": [
+      97.0,
+      26.0,
+      0.5882834196090698
+    ],
+    "midpoint_5_of_upper_inner_lip": [
+      97.0,
+      26.0,
+      0.5960263013839722
+    ],
+    "midpoint_6_of_upper_inner_lip": [
+      101.0,
+      26.0,
+      0.46082594990730286
+    ],
+    "midpoint_3_of_lower_inner_lip": [
+      101.0,
+      26.0,
+      0.40708261728286743
+    ],
+    "midpoint_4_of_lower_inner_lip": [
+      99.0,
+      28.0,
+      0.5474755764007568
+    ],
+    "midpoint_5_of_lower_inner_lip": [
+      99.0,
+      28.0,
+      0.5587165355682373
+    ],
+    "midpoint_6_of_lower_inner_lip": [
+      101.0,
+      26.0,
+      0.4487156569957733
+    ],
+    "l_top_end_of_inferior_crus": [
+      128.0,
+      15.0,
+      0.5865271687507629
+    ],
+    "l_top_end_of_superior_crus": [
+      128.0,
+      15.0,
+      0.5683397650718689
+    ],
+    "l_start_of_antihelix": [
+      128.0,
+      15.0,
+      0.6397616863250732
+    ],
+    "l_end_of_antihelix": [
+      128.0,
+      19.0,
+      0.7377304434776306
+    ],
+    "l_midpoint_1_of_antihelix": [
+      132.0,
+      19.0,
+      0.6996297836303711
+    ],
+    "l_midpoint_1_of_inferior_crus": [
+      128.0,
+      15.0,
+      0.6393479704856873
+    ],
+    "l_midpoint_2_of_antihelix": [
+      132.0,
+      19.0,
+      0.6626767516136169
+    ],
+    "l_midpoint_3_of_antihelix": [
+      128.0,
+      19.0,
+      0.722330629825592
+    ],
+    "l_point_1_of_inner_helix": [
+      128.0,
+      15.0,
+      0.5822643637657166
+    ],
+    "l_point_2_of_inner_helix": [
+      128.0,
+      15.0,
+      0.5644717216491699
+    ],
+    "l_point_3_of_inner_helix": [
+      132.0,
+      15.0,
+      0.6265592575073242
+    ],
+    "l_point_4_of_inner_helix": [
+      132.0,
+      19.0,
+      0.663305938243866
+    ],
+    "l_point_5_of_inner_helix": [
+      132.0,
+      19.0,
+      0.7122654914855957
+    ],
+    "l_point_6_of_inner_helix": [
+      132.0,
+      19.0,
+      0.7208639979362488
+    ],
+    "l_point_7_of_inner_helix": [
+      130.0,
+      19.0,
+      0.7209782004356384
+    ],
+    "l_highest_point_of_antitragus": [
+      128.0,
+      19.0,
+      0.7421543598175049
+    ],
+    "l_bottom_point_of_tragus": [
+      126.0,
+      19.0,
+      0.694915235042572
+    ],
+    "l_protruding_point_of_tragus": [
+      126.0,
+      19.0,
+      0.7075629234313965
+    ],
+    "l_top_point_of_tragus": [
+      126.0,
+      19.0,
+      0.6341198682785034
+    ],
+    "l_start_point_of_crus_of_helix": [
+      126.0,
+      19.0,
+      0.6341501474380493
+    ],
+    "l_deepest_point_of_concha": [
+      128.0,
+      19.0,
+      0.7188833355903625
+    ],
+    "l_tip_of_ear_lobe": [
+      128.0,
+      20.0,
+      0.6624168157577515
+    ],
+    "l_midpoint_between_22_15": [
+      128.0,
+      19.0,
+      0.7086789011955261
+    ],
+    "l_bottom_connecting_point_of_ear_lobe": [
+      126.0,
+      20.0,
+      0.6132909655570984
+    ],
+    "l_top_connecting_point_of_helix": [
+      127.0,
+      15.0,
+      0.5254693031311035
+    ],
+    "l_point_8_of_inner_helix": [
+      128.0,
+      15.0,
+      0.5719829797744751
+    ],
+    "r_top_end_of_inferior_crus": [
+      69.0,
+      25.0,
+      0.37522587180137634
+    ],
+    "r_top_end_of_superior_crus": [
+      68.0,
+      22.0,
+      0.31771108508110046
+    ],
+    "r_start_of_antihelix": [
+      69.0,
+      25.0,
+      0.36002111434936523
+    ],
+    "r_end_of_antihelix": [
+      69.0,
+      29.0,
+      0.4198402464389801
+    ],
+    "r_midpoint_1_of_antihelix": [
+      69.0,
+      29.0,
+      0.3969730734825134
+    ],
+    "r_midpoint_1_of_inferior_crus": [
+      69.0,
+      25.0,
+      0.3756599724292755
+    ],
+    "r_midpoint_2_of_antihelix": [
+      69.0,
+      25.0,
+      0.3696710467338562
+    ],
+    "r_midpoint_3_of_antihelix": [
+      69.0,
+      29.0,
+      0.4187726378440857
+    ],
+    "r_point_1_of_inner_helix": [
+      69.0,
+      25.0,
+      0.3803333640098572
+    ],
+    "r_point_8_of_inner_helix": [
+      68.0,
+      22.0,
+      0.3553573191165924
+    ],
+    "r_point_3_of_inner_helix": [
+      69.0,
+      25.0,
+      0.3119392693042755
+    ],
+    "r_point_4_of_inner_helix": [
+      67.0,
+      29.0,
+      0.35843613743782043
+    ],
+    "r_point_5_of_inner_helix": [
+      67.0,
+      30.0,
+      0.40119704604148865
+    ],
+    "r_point_6_of_inner_helix": [
+      67.0,
+      30.0,
+      0.4347997307777405
+    ],
+    "r_point_7_of_inner_helix": [
+      71.0,
+      30.0,
+      0.45558425784111023
+    ],
+    "r_highest_point_of_antitragus": [
+      72.0,
+      29.0,
+      0.4189351797103882
+    ],
+    "r_bottom_point_of_tragus": [
+      73.0,
+      25.0,
+      0.4086827039718628
+    ],
+    "r_protruding_point_of_tragus": [
+      69.0,
+      25.0,
+      0.4205344319343567
+    ],
+    "r_top_point_of_tragus": [
+      69.0,
+      25.0,
+      0.3909994065761566
+    ],
+    "r_start_point_of_crus_of_helix": [
+      68.0,
+      25.0,
+      0.3698595464229584
+    ],
+    "r_deepest_point_of_concha": [
+      69.0,
+      25.0,
+      0.41101887822151184
+    ],
+    "r_tip_of_ear_lobe": [
+      77.0,
+      29.0,
+      0.4600885510444641
+    ],
+    "r_midpoint_between_22_15": [
+      73.0,
+      29.0,
+      0.4659421443939209
+    ],
+    "r_bottom_connecting_point_of_ear_lobe": [
+      77.0,
+      29.0,
+      0.45880013704299927
+    ],
+    "r_top_connecting_point_of_helix": [
+      69.0,
+      21.0,
+      0.36864355206489563
+    ],
+    "r_point_2_of_inner_helix": [
+      68.0,
+      22.0,
+      0.31994542479515076
+    ],
+    "l_center_of_iris": [
+      59.0,
+      38.0,
+      0.011694882065057755
+    ],
+    "l_border_of_iris_3": [
+      100.0,
+      16.0,
+      0.010002740658819675
+    ],
+    "l_border_of_iris_midpoint_1": [
+      12.0,
+      248.0,
+      0.007473069243133068
+    ],
+    "l_border_of_iris_12": [
+      70.0,
+      38.0,
+      0.01730395294725895
+    ],
+    "l_border_of_iris_midpoint_4": [
+      120.0,
+      128.0,
+      0.010188099928200245
+    ],
+    "l_border_of_iris_9": [
+      48.0,
+      42.0,
+      0.01303037628531456
+    ],
+    "l_border_of_iris_midpoint_3": [
+      128.0,
+      15.0,
+      0.00699626374989748
+    ],
+    "l_border_of_iris_6": [
+      128.0,
+      19.0,
+      0.017203401774168015
+    ],
+    "l_border_of_iris_midpoint_2": [
+      108.0,
+      137.0,
+      0.009765752591192722
+    ],
+    "r_center_of_iris": [
+      14.0,
+      249.0,
+      0.01007683202624321
+    ],
+    "r_border_of_iris_3": [
+      26.0,
+      83.0,
+      0.009949899278581142
+    ],
+    "r_border_of_iris_midpoint_1": [
+      62.0,
+      37.0,
+      0.015660500153899193
+    ],
+    "r_border_of_iris_12": [
+      118.0,
+      142.0,
+      0.018365588039159775
+    ],
+    "r_border_of_iris_midpoint_4": [
+      62.0,
+      38.0,
+      0.02258807234466076
+    ],
+    "r_border_of_iris_9": [
+      117.0,
+      142.0,
+      0.013259771279990673
+    ],
+    "r_border_of_iris_midpoint_3": [
+      60.0,
+      36.0,
+      0.01816892996430397
+    ],
+    "r_border_of_iris_6": [
+      59.0,
+      36.0,
+      0.01861041598021984
+    ],
+    "r_border_of_iris_midpoint_2": [
+      161.0,
+      88.0,
+      0.009518426842987537
+    ],
+    "l_center_of_pupil": [
+      125.0,
+      142.0,
+      0.012717905454337597
+    ],
+    "l_border_of_pupil_3": [
+      128.0,
+      19.0,
+      0.008923315443098545
+    ],
+    "l_border_of_pupil_midpoint_1": [
+      126.0,
+      19.0,
+      0.012066813185811043
+    ],
+    "l_border_of_pupil_12": [
+      50.0,
+      47.0,
+      0.012364810332655907
+    ],
+    "l_border_of_pupil_midpoint_4": [
+      53.0,
+      36.0,
+      0.02042970433831215
+    ],
+    "l_border_of_pupil_9": [
+      128.0,
+      15.0,
+      0.012613576836884022
+    ],
+    "l_border_of_pupil_midpoint_3": [
+      126.0,
+      136.0,
+      0.014401217922568321
+    ],
+    "l_border_of_pupil_6": [
+      26.0,
+      81.0,
+      0.010573136620223522
+    ],
+    "l_border_of_pupil_midpoint_2": [
+      132.0,
+      138.0,
+      0.012719376012682915
+    ],
+    "r_center_of_pupil": [
+      128.0,
+      15.0,
+      0.008319531567394733
+    ],
+    "r_border_of_pupil_3": [
+      56.0,
+      46.0,
+      0.013322715647518635
+    ],
+    "r_border_of_pupil_midpoint_1": [
+      48.0,
+      39.0,
+      0.013878114521503448
+    ],
+    "r_border_of_pupil_12": [
+      119.0,
+      140.0,
+      0.011096225120127201
+    ],
+    "r_border_of_pupil_midpoint_4": [
+      43.0,
+      36.0,
+      0.008829220198094845
+    ],
+    "r_border_of_pupil_9": [
+      134.0,
+      138.0,
+      0.015004176646471024
+    ],
+    "r_border_of_pupil_midpoint_3": [
+      128.0,
+      19.0,
+      0.011730054393410683
+    ],
+    "r_border_of_pupil_6": [
+      56.0,
+      41.0,
+      0.013821307569742203
+    ],
+    "r_border_of_pupil_midpoint_2": [
+      69.0,
+      21.0,
+      0.010877802968025208
+    ]
+  }
+]

@@ -162,25 +162,6 @@ def main():
 
     image_processor = ImageProcessor()
 
-    # Determine if input is an image or JSON
-    input_is_json = args.input.lower().endswith('.json')
-
-    # if input_is_json:
-    #     # Load JSON data
-    #     with open(args.input, 'r') as f:
-    #         keypoints_data = json.load(f)
-        
-    #     # Assume the first image in the dataset for visualization
-    #     # You might want to add an argument to specify which image to use
-    #     sample_image_path =  './test.png'
-    #     input_image = Image.open(sample_image_path).convert("RGB")
-        
-    #     # Draw keypoints from JSON data
-    #     result_image = image_processor.draw_keypoints_from_json(input_image, keypoints_data[0], args.kpt_threshold)
-    #     result_image.save(args.output_image)
-    #     print(f"Results saved to {args.output_image}")
-    # else:
-    # Process image input
     input_image = Image.open(args.input).convert("RGB")
     result_image, keypoints = image_processor.process_image(input_image, args.model, args.kpt_threshold)
     result_image.save(args.output_image)
@@ -194,4 +175,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # python pose_vis.py input_image.jpg output_image.png --output_json output_keypoints.json --model 1b --kpt_threshold 0.3
+    # python pose_vis.py '/home/oem/Desktop/image_1.png'  test.png output.json
