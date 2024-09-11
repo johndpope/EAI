@@ -1,104 +1,3 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-
-## 34 classes in total
-ORIGINAL_GOLIATH_CLASSES = (
-    "Background",
-    "Apparel",
-    "Chair",
-    "Eyeglass_Frame",
-    "Eyeglass_Lenses",
-    "Face_Neck",
-    "Hair",
-    "Headset",
-    "Left_Foot",
-    "Left_Hand",
-    "Left_Lower_Arm",
-    "Left_Lower_Leg",
-    "Left_Shoe",
-    "Left_Sock",
-    "Left_Upper_Arm",
-    "Left_Upper_Leg",
-    "Lower_Clothing",
-    "Lower_Spandex",
-    "Right_Foot",
-    "Right_Hand",
-    "Right_Lower_Arm",
-    "Right_Lower_Leg",
-    "Right_Shoe",
-    "Right_Sock",
-    "Right_Upper_Arm",
-    "Right_Upper_Leg",
-    "Torso",
-    "Upper_Clothing",
-    "Visible_Badge",
-    "Lower_Lip",
-    "Upper_Lip",
-    "Lower_Teeth",
-    "Upper_Teeth",
-    "Tongue",
-)
-
-ORIGINAL_GOLIATH_PALETTE = [
-    [50, 50, 50],
-    [255, 218, 0],
-    [102, 204, 0],
-    [14, 0, 204],
-    [0, 204, 160],
-    [128, 200, 255],
-    [255, 0, 109],
-    [0, 255, 36],
-    [189, 0, 204],
-    [255, 0, 218],
-    [0, 160, 204],
-    [0, 255, 145],
-    [204, 0, 131],
-    [182, 0, 255],
-    [255, 109, 0],
-    [0, 255, 255],
-    [72, 0, 255],
-    [204, 43, 0],
-    [204, 131, 0],
-    [255, 0, 0],
-    [72, 255, 0],
-    [189, 204, 0],
-    [182, 255, 0],
-    [102, 0, 204],
-    [32, 72, 204],
-    [0, 145, 255],
-    [14, 204, 0],
-    [0, 128, 72],
-    [204, 0, 43],
-    [235, 205, 119],
-    [115, 227, 112],
-    [157, 113, 143],
-    [132, 93, 50],
-    [82, 21, 114],
-]
-
-## 6 classes to remove
-REMOVE_CLASSES = (
-    "Eyeglass_Frame",
-    "Eyeglass_Lenses",
-    "Visible_Badge",
-    "Chair",
-    "Lower_Spandex",
-    "Headset",
-)
-
-## 34 - 6 = 28 classes left
-GOLIATH_CLASSES = tuple(
-    [x for x in ORIGINAL_GOLIATH_CLASSES if x not in REMOVE_CLASSES]
-)
-GOLIATH_PALETTE = [
-    ORIGINAL_GOLIATH_PALETTE[idx]
-    for idx in range(len(ORIGINAL_GOLIATH_CLASSES))
-    if ORIGINAL_GOLIATH_CLASSES[idx] not in REMOVE_CLASSES
-]
-
 COCO_KPTS_COLORS = [
     [51, 153, 255],   # 0: nose
     [51, 153, 255],   # 1: left_eye
@@ -566,3 +465,560 @@ GOLIATH_KPTS_COLORS = [
     [32, 192, 192],   # 342: r_border_of_pupil_6
     [32, 192, 192],   # 343: r_border_of_pupil_midpoint_2
 ]
+
+GOLIATH_KEYPOINTS = [
+    "nose",
+    "left_eye",
+    "right_eye",
+    "left_ear",
+    "right_ear",
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+    "left_hip",
+    "right_hip",
+    "left_knee",
+    "right_knee",
+    "left_ankle",
+    "right_ankle",
+    "left_big_toe",
+    "left_small_toe",
+    "left_heel",
+    "right_big_toe",
+    "right_small_toe",
+    "right_heel",
+    "right_thumb4",
+    "right_thumb3",
+    "right_thumb2",
+    "right_thumb_third_joint",
+    "right_forefinger4",
+    "right_forefinger3",
+    "right_forefinger2",
+    "right_forefinger_third_joint",
+    "right_middle_finger4",
+    "right_middle_finger3",
+    "right_middle_finger2",
+    "right_middle_finger_third_joint",
+    "right_ring_finger4",
+    "right_ring_finger3",
+    "right_ring_finger2",
+    "right_ring_finger_third_joint",
+    "right_pinky_finger4",
+    "right_pinky_finger3",
+    "right_pinky_finger2",
+    "right_pinky_finger_third_joint",
+    "right_wrist",
+    "left_thumb4",
+    "left_thumb3",
+    "left_thumb2",
+    "left_thumb_third_joint",
+    "left_forefinger4",
+    "left_forefinger3",
+    "left_forefinger2",
+    "left_forefinger_third_joint",
+    "left_middle_finger4",
+    "left_middle_finger3",
+    "left_middle_finger2",
+    "left_middle_finger_third_joint",
+    "left_ring_finger4",
+    "left_ring_finger3",
+    "left_ring_finger2",
+    "left_ring_finger_third_joint",
+    "left_pinky_finger4",
+    "left_pinky_finger3",
+    "left_pinky_finger2",
+    "left_pinky_finger_third_joint",
+    "left_wrist",
+    "left_olecranon",
+    "right_olecranon",
+    "left_cubital_fossa",
+    "right_cubital_fossa",
+    "left_acromion",
+    "right_acromion",
+    "neck",
+    "center_of_glabella",
+    "center_of_nose_root",
+    "tip_of_nose_bridge",
+    "midpoint_1_of_nose_bridge",
+    "midpoint_2_of_nose_bridge",
+    "midpoint_3_of_nose_bridge",
+    "center_of_labiomental_groove",
+    "tip_of_chin",
+    "upper_startpoint_of_r_eyebrow",
+    "lower_startpoint_of_r_eyebrow",
+    "end_of_r_eyebrow",
+    "upper_midpoint_1_of_r_eyebrow",
+    "lower_midpoint_1_of_r_eyebrow",
+    "upper_midpoint_2_of_r_eyebrow",
+    "upper_midpoint_3_of_r_eyebrow",
+    "lower_midpoint_2_of_r_eyebrow",
+    "lower_midpoint_3_of_r_eyebrow",
+    "upper_startpoint_of_l_eyebrow",
+    "lower_startpoint_of_l_eyebrow",
+    "end_of_l_eyebrow",
+    "upper_midpoint_1_of_l_eyebrow",
+    "lower_midpoint_1_of_l_eyebrow",
+    "upper_midpoint_2_of_l_eyebrow",
+    "upper_midpoint_3_of_l_eyebrow",
+    "lower_midpoint_2_of_l_eyebrow",
+    "lower_midpoint_3_of_l_eyebrow",
+    "l_inner_end_of_upper_lash_line",
+    "l_outer_end_of_upper_lash_line",
+    "l_centerpoint_of_upper_lash_line",
+    "l_midpoint_2_of_upper_lash_line",
+    "l_midpoint_1_of_upper_lash_line",
+    "l_midpoint_6_of_upper_lash_line",
+    "l_midpoint_5_of_upper_lash_line",
+    "l_midpoint_4_of_upper_lash_line",
+    "l_midpoint_3_of_upper_lash_line",
+    "l_outer_end_of_upper_eyelid_line",
+    "l_midpoint_6_of_upper_eyelid_line",
+    "l_midpoint_2_of_upper_eyelid_line",
+    "l_midpoint_5_of_upper_eyelid_line",
+    "l_centerpoint_of_upper_eyelid_line",
+    "l_midpoint_4_of_upper_eyelid_line",
+    "l_midpoint_1_of_upper_eyelid_line",
+    "l_midpoint_3_of_upper_eyelid_line",
+    "l_midpoint_6_of_upper_crease_line",
+    "l_midpoint_2_of_upper_crease_line",
+    "l_midpoint_5_of_upper_crease_line",
+    "l_centerpoint_of_upper_crease_line",
+    "l_midpoint_4_of_upper_crease_line",
+    "l_midpoint_1_of_upper_crease_line",
+    "l_midpoint_3_of_upper_crease_line",
+    "r_inner_end_of_upper_lash_line",
+    "r_outer_end_of_upper_lash_line",
+    "r_centerpoint_of_upper_lash_line",
+    "r_midpoint_1_of_upper_lash_line",
+    "r_midpoint_2_of_upper_lash_line",
+    "r_midpoint_3_of_upper_lash_line",
+    "r_midpoint_4_of_upper_lash_line",
+    "r_midpoint_5_of_upper_lash_line",
+    "r_midpoint_6_of_upper_lash_line",
+    "r_outer_end_of_upper_eyelid_line",
+    "r_midpoint_3_of_upper_eyelid_line",
+    "r_midpoint_1_of_upper_eyelid_line",
+    "r_midpoint_4_of_upper_eyelid_line",
+    "r_centerpoint_of_upper_eyelid_line",
+    "r_midpoint_5_of_upper_eyelid_line",
+    "r_midpoint_2_of_upper_eyelid_line",
+    "r_midpoint_6_of_upper_eyelid_line",
+    "r_midpoint_3_of_upper_crease_line",
+    "r_midpoint_1_of_upper_crease_line",
+    "r_midpoint_4_of_upper_crease_line",
+    "r_centerpoint_of_upper_crease_line",
+    "r_midpoint_5_of_upper_crease_line",
+    "r_midpoint_2_of_upper_crease_line",
+    "r_midpoint_6_of_upper_crease_line",
+    "l_inner_end_of_lower_lash_line",
+    "l_outer_end_of_lower_lash_line",
+    "l_centerpoint_of_lower_lash_line",
+    "l_midpoint_2_of_lower_lash_line",
+    "l_midpoint_1_of_lower_lash_line",
+    "l_midpoint_6_of_lower_lash_line",
+    "l_midpoint_5_of_lower_lash_line",
+    "l_midpoint_4_of_lower_lash_line",
+    "l_midpoint_3_of_lower_lash_line",
+    "l_outer_end_of_lower_eyelid_line",
+    "l_midpoint_6_of_lower_eyelid_line",
+    "l_midpoint_2_of_lower_eyelid_line",
+    "l_midpoint_5_of_lower_eyelid_line",
+    "l_centerpoint_of_lower_eyelid_line",
+    "l_midpoint_4_of_lower_eyelid_line",
+    "l_midpoint_1_of_lower_eyelid_line",
+    "l_midpoint_3_of_lower_eyelid_line",
+    "r_inner_end_of_lower_lash_line",
+    "r_outer_end_of_lower_lash_line",
+    "r_centerpoint_of_lower_lash_line",
+    "r_midpoint_1_of_lower_lash_line",
+    "r_midpoint_2_of_lower_lash_line",
+    "r_midpoint_3_of_lower_lash_line",
+    "r_midpoint_4_of_lower_lash_line",
+    "r_midpoint_5_of_lower_lash_line",
+    "r_midpoint_6_of_lower_lash_line",
+    "r_outer_end_of_lower_eyelid_line",
+    "r_midpoint_3_of_lower_eyelid_line",
+    "r_midpoint_1_of_lower_eyelid_line",
+    "r_midpoint_4_of_lower_eyelid_line",
+    "r_centerpoint_of_lower_eyelid_line",
+    "r_midpoint_5_of_lower_eyelid_line",
+    "r_midpoint_2_of_lower_eyelid_line",
+    "r_midpoint_6_of_lower_eyelid_line",
+    "tip_of_nose",
+    "bottom_center_of_nose",
+    "r_outer_corner_of_nose",
+    "l_outer_corner_of_nose",
+    "inner_corner_of_r_nostril",
+    "outer_corner_of_r_nostril",
+    "upper_corner_of_r_nostril",
+    "inner_corner_of_l_nostril",
+    "outer_corner_of_l_nostril",
+    "upper_corner_of_l_nostril",
+    "r_outer_corner_of_mouth",
+    "l_outer_corner_of_mouth",
+    "center_of_cupid_bow",
+    "center_of_lower_outer_lip",
+    "midpoint_1_of_upper_outer_lip",
+    "midpoint_2_of_upper_outer_lip",
+    "midpoint_1_of_lower_outer_lip",
+    "midpoint_2_of_lower_outer_lip",
+    "midpoint_3_of_upper_outer_lip",
+    "midpoint_4_of_upper_outer_lip",
+    "midpoint_5_of_upper_outer_lip",
+    "midpoint_6_of_upper_outer_lip",
+    "midpoint_3_of_lower_outer_lip",
+    "midpoint_4_of_lower_outer_lip",
+    "midpoint_5_of_lower_outer_lip",
+    "midpoint_6_of_lower_outer_lip",
+    "r_inner_corner_of_mouth",
+    "l_inner_corner_of_mouth",
+    "center_of_upper_inner_lip",
+    "center_of_lower_inner_lip",
+    "midpoint_1_of_upper_inner_lip",
+    "midpoint_2_of_upper_inner_lip",
+    "midpoint_1_of_lower_inner_lip",
+    "midpoint_2_of_lower_inner_lip",
+    "midpoint_3_of_upper_inner_lip",
+    "midpoint_4_of_upper_inner_lip",
+    "midpoint_5_of_upper_inner_lip",
+    "midpoint_6_of_upper_inner_lip",
+    "midpoint_3_of_lower_inner_lip",
+    "midpoint_4_of_lower_inner_lip",
+    "midpoint_5_of_lower_inner_lip",
+    "midpoint_6_of_lower_inner_lip",
+    "l_top_end_of_inferior_crus",
+    "l_top_end_of_superior_crus",
+    "l_start_of_antihelix",
+    "l_end_of_antihelix",
+    "l_midpoint_1_of_antihelix",
+    "l_midpoint_1_of_inferior_crus",
+    "l_midpoint_2_of_antihelix",
+    "l_midpoint_3_of_antihelix",
+    "l_point_1_of_inner_helix",
+    "l_point_2_of_inner_helix",
+    "l_point_3_of_inner_helix",
+    "l_point_4_of_inner_helix",
+    "l_point_5_of_inner_helix",
+    "l_point_6_of_inner_helix",
+    "l_point_7_of_inner_helix",
+    "l_highest_point_of_antitragus",
+    "l_bottom_point_of_tragus",
+    "l_protruding_point_of_tragus",
+    "l_top_point_of_tragus",
+    "l_start_point_of_crus_of_helix",
+    "l_deepest_point_of_concha",
+    "l_tip_of_ear_lobe",
+    "l_midpoint_between_22_15",
+    "l_bottom_connecting_point_of_ear_lobe",
+    "l_top_connecting_point_of_helix",
+    "l_point_8_of_inner_helix",
+    "r_top_end_of_inferior_crus",
+    "r_top_end_of_superior_crus",
+    "r_start_of_antihelix",
+    "r_end_of_antihelix",
+    "r_midpoint_1_of_antihelix",
+    "r_midpoint_1_of_inferior_crus",
+    "r_midpoint_2_of_antihelix",
+    "r_midpoint_3_of_antihelix",
+    "r_point_1_of_inner_helix",
+    "r_point_8_of_inner_helix",
+    "r_point_3_of_inner_helix",
+    "r_point_4_of_inner_helix",
+    "r_point_5_of_inner_helix",
+    "r_point_6_of_inner_helix",
+    "r_point_7_of_inner_helix",
+    "r_highest_point_of_antitragus",
+    "r_bottom_point_of_tragus",
+    "r_protruding_point_of_tragus",
+    "r_top_point_of_tragus",
+    "r_start_point_of_crus_of_helix",
+    "r_deepest_point_of_concha",
+    "r_tip_of_ear_lobe",
+    "r_midpoint_between_22_15",
+    "r_bottom_connecting_point_of_ear_lobe",
+    "r_top_connecting_point_of_helix",
+    "r_point_2_of_inner_helix",
+    "l_center_of_iris",
+    "l_border_of_iris_3",
+    "l_border_of_iris_midpoint_1",
+    "l_border_of_iris_12",
+    "l_border_of_iris_midpoint_4",
+    "l_border_of_iris_9",
+    "l_border_of_iris_midpoint_3",
+    "l_border_of_iris_6",
+    "l_border_of_iris_midpoint_2",
+    "r_center_of_iris",
+    "r_border_of_iris_3",
+    "r_border_of_iris_midpoint_1",
+    "r_border_of_iris_12",
+    "r_border_of_iris_midpoint_4",
+    "r_border_of_iris_9",
+    "r_border_of_iris_midpoint_3",
+    "r_border_of_iris_6",
+    "r_border_of_iris_midpoint_2",
+    "l_center_of_pupil",
+    "l_border_of_pupil_3",
+    "l_border_of_pupil_midpoint_1",
+    "l_border_of_pupil_12",
+    "l_border_of_pupil_midpoint_4",
+    "l_border_of_pupil_9",
+    "l_border_of_pupil_midpoint_3",
+    "l_border_of_pupil_6",
+    "l_border_of_pupil_midpoint_2",
+    "r_center_of_pupil",
+    "r_border_of_pupil_3",
+    "r_border_of_pupil_midpoint_1",
+    "r_border_of_pupil_12",
+    "r_border_of_pupil_midpoint_4",
+    "r_border_of_pupil_9",
+    "r_border_of_pupil_midpoint_3",
+    "r_border_of_pupil_6",
+    "r_border_of_pupil_midpoint_2"
+]
+
+GOLIATH_SKELETON_INFO = {
+        0:
+        dict(link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+        1:
+        dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+        2:
+        dict(link=('right_ankle', 'right_knee'), id=2, color=[255, 128, 0]),
+        3:
+        dict(link=('right_knee', 'right_hip'), id=3, color=[255, 128, 0]),
+        4:
+        dict(link=('left_hip', 'right_hip'), id=4, color=[51, 153, 255]),
+        5:
+        dict(link=('left_shoulder', 'left_hip'), id=5, color=[51, 153, 255]),
+        6:
+        dict(link=('right_shoulder', 'right_hip'), id=6, color=[51, 153, 255]),
+        7:
+        dict(
+            link=('left_shoulder', 'right_shoulder'),
+            id=7,
+            color=[51, 153, 255]),
+        8:
+        dict(link=('left_shoulder', 'left_elbow'), id=8, color=[0, 255, 0]),
+        9:
+        dict(
+            link=('right_shoulder', 'right_elbow'), id=9, color=[255, 128, 0]),
+        10:
+        dict(link=('left_elbow', 'left_wrist'), id=10, color=[0, 255, 0]),
+        11:
+        dict(link=('right_elbow', 'right_wrist'), id=11, color=[255, 128, 0]),
+        12:
+        dict(link=('left_eye', 'right_eye'), id=12, color=[51, 153, 255]),
+        13:
+        dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+        14:
+        dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+        15:
+        dict(link=('left_eye', 'left_ear'), id=15, color=[51, 153, 255]),
+        16:
+        dict(link=('right_eye', 'right_ear'), id=16, color=[51, 153, 255]),
+        17:
+        dict(link=('left_ear', 'left_shoulder'), id=17, color=[51, 153, 255]),
+        18:
+        dict(
+            link=('right_ear', 'right_shoulder'), id=18, color=[51, 153, 255]),
+        19:
+        dict(link=('left_ankle', 'left_big_toe'), id=19, color=[0, 255, 0]),
+        20:
+        dict(link=('left_ankle', 'left_small_toe'), id=20, color=[0, 255, 0]),
+        21:
+        dict(link=('left_ankle', 'left_heel'), id=21, color=[0, 255, 0]),
+        22:
+        dict(
+            link=('right_ankle', 'right_big_toe'), id=22, color=[255, 128, 0]),
+        23:
+        dict(
+            link=('right_ankle', 'right_small_toe'),
+            id=23,
+            color=[255, 128, 0]),
+        24:
+        dict(link=('right_ankle', 'right_heel'), id=24, color=[255, 128, 0]),
+        25:
+        dict(
+            link=('left_wrist', 'left_thumb_third_joint'), id=25, color=[255, 128,
+                                                                  0]),
+        26:
+        dict(link=('left_thumb_third_joint', 'left_thumb2'), id=26, color=[255, 128, 0]),
+        27:
+        dict(link=('left_thumb2', 'left_thumb3'), id=27, color=[255, 128, 0]),
+        28:
+        dict(link=('left_thumb3', 'left_thumb4'), id=28, color=[255, 128, 0]),
+        29:
+        dict(
+            link=('left_wrist', 'left_forefinger_third_joint'),
+            id=29,
+            color=[255, 153, 255]),
+        30:
+        dict(
+            link=('left_forefinger_third_joint', 'left_forefinger2'),
+            id=30,
+            color=[255, 153, 255]),
+        31:
+        dict(
+            link=('left_forefinger2', 'left_forefinger3'),
+            id=31,
+            color=[255, 153, 255]),
+        32:
+        dict(
+            link=('left_forefinger3', 'left_forefinger4'),
+            id=32,
+            color=[255, 153, 255]),
+        33:
+        dict(
+            link=('left_wrist', 'left_middle_finger_third_joint'),
+            id=33,
+            color=[102, 178, 255]),
+        34:
+        dict(
+            link=('left_middle_finger_third_joint', 'left_middle_finger2'),
+            id=34,
+            color=[102, 178, 255]),
+        35:
+        dict(
+            link=('left_middle_finger2', 'left_middle_finger3'),
+            id=35,
+            color=[102, 178, 255]),
+        36:
+        dict(
+            link=('left_middle_finger3', 'left_middle_finger4'),
+            id=36,
+            color=[102, 178, 255]),
+        37:
+        dict(
+            link=('left_wrist', 'left_ring_finger_third_joint'),
+            id=37,
+            color=[255, 51, 51]),
+        38:
+        dict(
+            link=('left_ring_finger_third_joint', 'left_ring_finger2'),
+            id=38,
+            color=[255, 51, 51]),
+        39:
+        dict(
+            link=('left_ring_finger2', 'left_ring_finger3'),
+            id=39,
+            color=[255, 51, 51]),
+        40:
+        dict(
+            link=('left_ring_finger3', 'left_ring_finger4'),
+            id=40,
+            color=[255, 51, 51]),
+        41:
+        dict(
+            link=('left_wrist', 'left_pinky_finger_third_joint'),
+            id=41,
+            color=[0, 255, 0]),
+        42:
+        dict(
+            link=('left_pinky_finger_third_joint', 'left_pinky_finger2'),
+            id=42,
+            color=[0, 255, 0]),
+        43:
+        dict(
+            link=('left_pinky_finger2', 'left_pinky_finger3'),
+            id=43,
+            color=[0, 255, 0]),
+        44:
+        dict(
+            link=('left_pinky_finger3', 'left_pinky_finger4'),
+            id=44,
+            color=[0, 255, 0]),
+        45:
+        dict(
+            link=('right_wrist', 'right_thumb_third_joint'),
+            id=45,
+            color=[255, 128, 0]),
+        46:
+        dict(
+            link=('right_thumb_third_joint', 'right_thumb2'), id=46, color=[255, 128, 0]),
+        47:
+        dict(
+            link=('right_thumb2', 'right_thumb3'), id=47, color=[255, 128, 0]),
+        48:
+        dict(
+            link=('right_thumb3', 'right_thumb4'), id=48, color=[255, 128, 0]),
+        49:
+        dict(
+            link=('right_wrist', 'right_forefinger_third_joint'),
+            id=49,
+            color=[255, 153, 255]),
+        50:
+        dict(
+            link=('right_forefinger_third_joint', 'right_forefinger2'),
+            id=50,
+            color=[255, 153, 255]),
+        51:
+        dict(
+            link=('right_forefinger2', 'right_forefinger3'),
+            id=51,
+            color=[255, 153, 255]),
+        52:
+        dict(
+            link=('right_forefinger3', 'right_forefinger4'),
+            id=52,
+            color=[255, 153, 255]),
+        53:
+        dict(
+            link=('right_wrist', 'right_middle_finger_third_joint'),
+            id=53,
+            color=[102, 178, 255]),
+        54:
+        dict(
+            link=('right_middle_finger_third_joint', 'right_middle_finger2'),
+            id=54,
+            color=[102, 178, 255]),
+        55:
+        dict(
+            link=('right_middle_finger2', 'right_middle_finger3'),
+            id=55,
+            color=[102, 178, 255]),
+        56:
+        dict(
+            link=('right_middle_finger3', 'right_middle_finger4'),
+            id=56,
+            color=[102, 178, 255]),
+        57:
+        dict(
+            link=('right_wrist', 'right_ring_finger_third_joint'),
+            id=57,
+            color=[255, 51, 51]),
+        58:
+        dict(
+            link=('right_ring_finger_third_joint', 'right_ring_finger2'),
+            id=58,
+            color=[255, 51, 51]),
+        59:
+        dict(
+            link=('right_ring_finger2', 'right_ring_finger3'),
+            id=59,
+            color=[255, 51, 51]),
+        60:
+        dict(
+            link=('right_ring_finger3', 'right_ring_finger4'),
+            id=60,
+            color=[255, 51, 51]),
+        61:
+        dict(
+            link=('right_wrist', 'right_pinky_finger_third_joint'),
+            id=61,
+            color=[0, 255, 0]),
+        62:
+        dict(
+            link=('right_pinky_finger_third_joint', 'right_pinky_finger2'),
+            id=62,
+            color=[0, 255, 0]),
+        63:
+        dict(
+            link=('right_pinky_finger2', 'right_pinky_finger3'),
+            id=63,
+            color=[0, 255, 0]),
+        64:
+        dict(
+            link=('right_pinky_finger3', 'right_pinky_finger4'),
+            id=64,
+            color=[0, 255, 0])
+    }
